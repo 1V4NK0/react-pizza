@@ -1,0 +1,10 @@
+import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "./features/user/userSlice";
+/* basically it seems to be a bit different version of useContext, u have Provider as well and store is kinda ur context hook */
+const store = configureStore({
+  reducer: {
+    user: userReducer,
+  },
+});
+
+export default store;
