@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 import { createOrder } from "../../services/apiRestaurant";
-
+import Button from "../../ui/Button";
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -78,18 +78,9 @@ function CreateOrder() {
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
           {/*for some reason for button to apply styles it has to be inline block */}
-          <button
-            disabled={isSubmitting}
-            className="bg-yellow-500 uppercase font-semibold
-             text-stone-700 py-3 px-4
-              inline-block tracking-wide rounded-lg
-               hover:bg-yellow-400 transition-colors
-                duration-300 
-                focus:outline-none focus:ring focus:ring-yellow-700
-                disabled:cursor-not-allowed"
-          >
+          <Button disabled={isSubmitting}>
             {isSubmitting ? "Placing order..." : "Order now"}
-          </button>
+          </Button>
         </div>
       </Form>
     </div>
